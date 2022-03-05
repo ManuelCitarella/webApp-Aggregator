@@ -1,0 +1,40 @@
+[
+        {
+            "project": { "id": 1, "name": "Mars Rover" },
+            "employee": { "id": 1, "name": "Mario" },
+            "date": "27 Aug 2021",
+            "hours": 5 
+        },
+        {
+            "project": { "id": 2, "name": "Manhattan" },
+            "employee": { "id": 2, "name": "Giovanni" },
+            "date": "31 Aug 2021",
+            "hours": 3
+        },
+        {
+            "project": { "id": 1, "name": "Mars Rover" },
+            "employee": { "id": 1, "name": "Mario" },
+            "date": "01 Sep 2021",
+            "hours": 3
+        },
+        {
+            "project": { "id": 1, "name": "Mars Rover" },
+            "employee": { "id": 3, "name": "Lucia" },
+            "date": "01 Sep 2021",
+            "hours": 3
+        },
+        {
+            "project": { "id": 2, "name": "Manhattan" },
+            "employee": { "id": 1, "name": "Mario" },
+            "date": "27 Aug 2021",
+            "hours": 2
+        },
+        {
+            "project": { "id": 2, "name": "Manhattan" },
+            "employee": { "id": 2, "name": "Giovanni" },
+            "date": "01 Sep 2021",
+            "hours": 4
+        }
+]
+
+
