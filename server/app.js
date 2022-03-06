@@ -39,7 +39,7 @@ app.use(function(err, req, res, next) {
 const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, ()=>{
-  const url = `https://localhost:${PORT}`
+  const url = `http://localhost:${PORT}`
   console.log(`Listening on ${PORT}`)
 })
 
