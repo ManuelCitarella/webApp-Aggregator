@@ -2,7 +2,7 @@ import React from "react";
 import "../App.css";
 import ProjectData from '../projectData.json';
 import { HomePage } from "./Homepage.js"
-import { ProjectV } from "./ProjectViewer";
+import { ProjectV } from "./TableViewer";
 
 export const ProjectsPage = () => {
   return (
@@ -34,7 +34,6 @@ export const ProjectsPage = () => {
         name="payloadBox" 
         placeholder="Enter second attribute"
       />
-      <button value="Send">Publish</button>
     </>
   );
 };

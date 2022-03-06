@@ -1,12 +1,8 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import "../App.css";
-import ProjectData from '../projectData.json';
-import { HomePage } from "./Homepage.js"
-import { ProjectV } from "./ProjectViewer";
 import _ from "lodash";
 
-
-export const NameList = () =>{
+export const DisplayAggregations = () =>{
     var ProjectT = 
     [
         {
@@ -47,12 +43,6 @@ export const NameList = () =>{
         }
 ];
 
-/*
-const projects = Object.keys(ProjectT[0]);
-console.log(projects);
-
-*/
-
 /*RAGGRUPPAMENTO PER UN SOLO ATTRIBUTO*/ 
 //RAGGRUPPAMENTO PER PROJECT NAME
 var gb =  _.groupBy(ProjectT, 'project.name');
@@ -67,20 +57,20 @@ var result = _.map(gb, function(value, key) {
         }, 0) 
       };
     });
-console.log('Raggruppamento project', result);
+console.log('Raggruppamento per project', result);
 // FINE RAGGRUPPAMENTO
 
 /*RAGGRUPPAMENTO PER + ATTRIBUTI*/ 
 const grouped = _.groupBy(ProjectT, item => `"${item.project.id}+${item.employee.id}"`);
 /*PROJECT.ID E EMPLOYEE.ID*/ 
-console.log('Raggruppamento multiplo project employee',grouped);
+console.log('Raggruppamento multiplo per project employee',grouped);
 /*EMPLOYEE.ID E PROJECT.ID*/ 
 const grouped2 = _.groupBy(ProjectT, item => `"${item.employee.id}+${item.project.id}"`);
-console.log('Raggruppamento multiplo employee project', grouped2);
+console.log('Raggruppamento multiplo per employee project', grouped2);
 
 // RAGGRUPPAMENTO MULTIPLO PROJECT.ID E EMPLOYEE.ID
 var result3 = _.map(grouped, function(value, key) {
-    return { 
+    return{ 
         IDGroup: key,
         ProjectID:  _.reduce(value, function(total, o) { 
             return o.project.id;
@@ -120,55 +110,99 @@ var result4 = _.map(grouped2, function(value, key) {
     });
 
 // sort in base all'id
-console.log('Raggruppamento multiplo employee + project',result4.sort((a, b) => a.EmployeeID- b.EmployeeID ));
+console.log('Raggruppamento multiplo per employee project',result4.sort((a, b) => a.EmployeeID - b.EmployeeID ));
 
-/*
-var secondRes = _.map(grouped2, function(value, key) {
-    return { 
-        Id: key, 
-        Hours: _.reduce(value, function(total, o) { 
-            return total + o.hours;
-        }, 0) 
-      };
-    });
-
-console.log(secondRes);*/
-/*
-const groups = ['project.id', 'employee.id']
-ProjectT.forEach(function (a) {
-    groups.reduce(function (o, g, i) {                            // take existing object,
-        o[a[g]] = o[a[g]] || (i + 1 === groups.length ? [] : {}); // or generate new obj, or
-        return o[a[g]];                                           // at last, then an array
-    }, grouped).push(a);
-});
-*/
-/*
-var result2 = _.map(grouped, function(value, key) {
-    return { 
-        name: key, 
-        hours: _.reduce(value, function(total, o) { 
-            return total + o.hours;
-        }, 0) 
-      };
-    });
-
-console.log(result2);*/
-/*
-    return Object.keys(result).map(function(key) {
-        return(result[key]);
-    });
-*/
+const ReptileList = () => {
+    console.log('executed reptiles');
+    const reptiles = ["alligator", "snake", "lizard"];
+  return (
+      <div>
+      {reptiles.map((reptile) => (
+       <table>
+       <tbody>
+       <tr>
+       <td>
+       Reptile
+       <h5>{reptile}</h5>
+       </td>
+       </tr>
+       </tbody>
+       </table>
+      ))}   
+    </div>
+  );
+}
     return (
         <>
-              {
-                  Object.entries(gb).map(([key, value])=>{
-                    return (
-                        <div key={key}>
-                        {value.hours}
-                        </div>
-                    )
-                  })}
-        
+        <div>
+        <button value="Aggregation" onClick={()=>{console.log('button clicked');
+        ReptileList();
+        console.log('end function');}}>Generate Aggregation</button>
+        </div>
+        <div>
+            <p>Primo Raggruppamento per progetto</p>
+            {result.map((results) => (
+               <table>
+                <tbody>
+                <tr>
+                <td>
+                Name
+                <h5>{results.Name}</h5>
+                </td>
+                <td>
+                Hours
+                <h5>{results.Hours}</h5>
+                </td>  
+                </tr>
+                </tbody>
+                </table>
+            ))}
+            
+                
+            <p>Secondo Raggruppamento per progetto e impiegato</p>
+            {resultfin.map((results) => (
+               <table>
+                <tbody>
+                <tr>
+                <td>
+                Name
+                <h5>{results.Project}</h5>
+                </td>
+                <td>
+                Employee
+                <h5>{results.Employee}</h5>
+                </td>  
+                <td>
+                Hours
+                <h5>{results.Hours}</h5>
+                </td>
+                </tr>
+                </tbody>
+                </table>
+            ))}
+
+            <p>Terzo Raggruppamento per impiegato e progetto</p>
+            {result4.map((results) => (
+               <table>
+                <tbody>
+                <tr>
+                <td>
+                Employee
+                <h5>{results.Employee}</h5>
+                </td>
+                <td>
+                Project
+                <h5>{results.Project}</h5>
+                </td>  
+                <td>
+                Hours
+                <h5>{results.Hours}</h5>
+                </td>
+                </tr>
+                </tbody>
+                </table>
+            ))}
+        </div>
         </>
       );
     };

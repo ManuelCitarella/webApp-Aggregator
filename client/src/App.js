@@ -1,18 +1,15 @@
 // client/src/App.js
+// Main page that groups all
 import React from "react";
-
 import "./App.css";
 import { ProjectsPage } from "./components/Projects";
-import { Test } from "./components/Choice";
-import { NameList } from "./components/ProjectAgg";
+import { DisplayAggregations } from "./components/Aggregations";
 
 function App() { 
   return (
     <div className="App">
     <ProjectsPage/>
-    <NameList/>
-    
-       
+    <DisplayAggregations/>
     </div>
     );
 }
