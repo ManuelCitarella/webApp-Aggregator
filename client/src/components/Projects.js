@@ -2,7 +2,7 @@ import React from "react";
 import "../App.css";
 import ProjectData from '../projectData.json';
 import { HomePage } from "./Homepage.js"
-import { ProjectV } from "./ProjectViewer";
+import { ProjectV } from "./TableViewer";
 
 export const ProjectsPage = () => {
   return (
@@ -24,17 +24,7 @@ export const ProjectsPage = () => {
                   );
               })}
       </div>
-      <input 
-        type="text" 
-        name="payloadBox" 
-        placeholder="Enter first attribute"
-      />
-      <input 
-        type="text" 
-        name="payloadBox" 
-        placeholder="Enter second attribute"
-      />
-      <button value="Send">Publish</button>
+      <div><h2>Select one or more attributes</h2></div>
     </>
   );
 };
