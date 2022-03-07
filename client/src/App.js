@@ -3,8 +3,7 @@
 import React from "react";
 import "./App.css";
 import { ProjectsPage } from "./components/Projects";
-import { DisplayAggregations } from "./components/Aggregations";
-import { Aggregation } from "./components/ButtonClick";
+import { Aggregation } from "./components/Aggregation";
 
 function App() { 
   return (

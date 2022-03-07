@@ -311,7 +311,9 @@ export class Aggregation extends React.Component {
               <option value="date">Date</option>
     </select>
     <div> {this.mainAggregation(this.state.comboboxValue1, this.state.comboboxValue2)} </div>
+    <div><footer className='App-footer'></footer></div>    
     </div>
+    
     );
   }
 }

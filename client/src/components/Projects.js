@@ -24,6 +24,7 @@ export const ProjectsPage = () => {
                   );
               })}
       </div>
+      <div><h2>Select one or more attributes</h2></div>
     </>
   );
 };

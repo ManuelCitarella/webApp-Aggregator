@@ -42,6 +42,11 @@ nav ul li{
   color: white;
 }
 
+.App-footer {
+  background-color: #282c34;
+  min-height: 12vh;
+}
+
 .App-link {
   color: #61dafb;
 }

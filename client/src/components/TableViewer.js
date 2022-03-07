@@ -27,7 +27,7 @@ export const ProjectV = ({ project, employee, date, hours }) => { // first view 
     );
   };
 
-  export const TableOnProject = ({ project, hours }) => {
+  export const TableOnProject = ({ project, hours }) => { // view only on Project attribute
     if (!project) return <div />;
     return (
       <table>
@@ -47,7 +47,7 @@ export const ProjectV = ({ project, employee, date, hours }) => { // first view 
     );
   };
 
-  export const TableOnEmployee = ({ employee, hours }) => {
+  export const TableOnEmployee = ({ employee, hours }) => { // view only on Employee..
     if (!employee) return <div />;
     return (
       <table>
@@ -87,7 +87,7 @@ export const ProjectV = ({ project, employee, date, hours }) => { // first view 
     );
   };
 
-  export const TableOn_Project_Employee = ({ project, employee, hours }) => {
+  export const TableOn_Project_Employee = ({ project, employee, hours }) => { // view on Project & Employee
     if (!project) return <div />;
     return (
       <table>
