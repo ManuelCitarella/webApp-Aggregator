@@ -12,7 +12,6 @@ export const ProjectV = ({ project, employee, date, hours }) => {
             Employee
               <h5>{employee}</h5>
             </td>
-            
             <td>
             Date
               <h4>{date}</h4>

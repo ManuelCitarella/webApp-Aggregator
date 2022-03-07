@@ -3,6 +3,8 @@ import "../App.css";
 import _ from "lodash";
 
 export const DisplayAggregations = () =>{
+  //var ProjectT = fetch('http://localhost:3001/json')
+
     var ProjectT = 
     [
         {
@@ -110,98 +112,51 @@ var result4 = _.map(grouped2, function(value, key) {
     });
 
 // sort in base all'id
-console.log('Raggruppamento multiplo per employee project',result4.sort((a, b) => a.EmployeeID - b.EmployeeID ));
+console.log('Raggruppamento multiplo per employee project', result4.sort((a, b) => a.EmployeeID - b.EmployeeID ));
 
-const ReptileList = () => {
-    console.log('executed reptiles');
-    const reptiles = ["alligator", "snake", "lizard"];
-  return (
-      <div>
-      {reptiles.map((reptile) => (
-       <table>
-       <tbody>
-       <tr>
-       <td>
-       Reptile
-       <h5>{reptile}</h5>
-       </td>
-       </tr>
-       </tbody>
-       </table>
-      ))}   
-    </div>
-  );
-}
+/* NUOVI METODI
+MEGLIO COSì, FUNZIONA MEGLIO PER IL RAGGRUPPAMENTO DOPPIO 
+QUESTO è PER PROJECT E EMPLOYEE*/
+var helper = {};
+var Newresult = ProjectT.reduce(function(r, o) {
+  var key = o.project.id + '-' + o.employee.id;
+  
+  if(!helper[key]) {
+    helper[key] = Object.assign({}, o); // create a copy of o
+    r.push(helper[key]);
+  } else {
+    helper[key].hours += o.hours;
+  }
+
+  return r;
+}, []);
+
+console.log('N Raggruppamento multiplo project + employee', Newresult.sort((a, b) => a.project.id- b.project.id));
+
+/*MEGLIO COSì, FUNZIONA MEGLIO PER IL RAGGRUPPAMENTO DOPPIO 
+QUESTO è PER EMPLOYEE E PROJECT*/
+var helper2 = {};
+var Newresult2 = ProjectT.reduce(function(r, o) {
+  var key = o.employee.id + '-' + o.project.id;
+  
+  if(!helper2[key]) {
+    helper2[key] = Object.assign({}, o); // create a copy of o
+    r.push(helper2[key]);
+  } else {
+    helper2[key].hours += o.hours;
+  }
+
+  return r;
+}, []);
+var helper3 = Newresult2.sort((a, b) => a.employee.id- b.employee.id);
+console.log('N Raggruppamento multiplo employee+project', helper3);
+/**da qui */
+
+
     return (
         <>
         <div>
-        <button value="Aggregation" onClick={()=>{console.log('button clicked');
-        ReptileList();
-        console.log('end function');}}>Generate Aggregation</button>
-        </div>
-        <div>
-            <p>Primo Raggruppamento per progetto</p>
-            {result.map((results) => (
-               <table>
-                <tbody>
-                <tr>
-                <td>
-                Name
-                <h5>{results.Name}</h5>
-                </td>
-                <td>
-                Hours
-                <h5>{results.Hours}</h5>
-                </td>  
-                </tr>
-                </tbody>
-                </table>
-            ))}
             
-                
-            <p>Secondo Raggruppamento per progetto e impiegato</p>
-            {resultfin.map((results) => (
-               <table>
-                <tbody>
-                <tr>
-                <td>
-                Name
-                <h5>{results.Project}</h5>
-                </td>
-                <td>
-                Employee
-                <h5>{results.Employee}</h5>
-                </td>  
-                <td>
-                Hours
-                <h5>{results.Hours}</h5>
-                </td>
-                </tr>
-                </tbody>
-                </table>
-            ))}
-
-            <p>Terzo Raggruppamento per impiegato e progetto</p>
-            {result4.map((results) => (
-               <table>
-                <tbody>
-                <tr>
-                <td>
-                Employee
-                <h5>{results.Employee}</h5>
-                </td>
-                <td>
-                Project
-                <h5>{results.Project}</h5>
-                </td>  
-                <td>
-                Hours
-                <h5>{results.Hours}</h5>
-                </td>
-                </tr>
-                </tbody>
-                </table>
-            ))}
         </div>
         </>
       );

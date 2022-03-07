@@ -24,16 +24,6 @@ export const ProjectsPage = () => {
                   );
               })}
       </div>
-      <input 
-        type="text" 
-        name="payloadBox" 
-        placeholder="Enter first attribute"
-      />
-      <input 
-        type="text" 
-        name="payloadBox" 
-        placeholder="Enter second attribute"
-      />
     </>
   );
 };
