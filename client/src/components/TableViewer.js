@@ -87,7 +87,7 @@ export const ProjectV = ({ project, employee, date, hours }) => { // first view 
     );
   };
 
-  export const TableOn_Project_Employee = ({ project, employee, hours }) => { // view on Project & Employee
+  export const TableOnProjectEmployee = ({ project, employee, hours }) => { // view on Project & Employee
     if (!project) return <div />;
     return (
       <table>
@@ -111,7 +111,7 @@ export const ProjectV = ({ project, employee, date, hours }) => { // first view 
     );
   };
 
-  export const TableOn_Employee_Project = ({ employee, project, hours }) => {
+  export const TableOnEmployeeProject = ({ employee, project, hours }) => {
     if (!employee) return <div />;
     return (
       <table>
@@ -135,7 +135,7 @@ export const ProjectV = ({ project, employee, date, hours }) => { // first view 
     );
   };
 
-  export const TableOn_Project_Date = ({ project, date, hours }) => {
+  export const TableOnProjectDate = ({ project, date, hours }) => {
     if (!project) return <div />;
     return (
       <table>
@@ -159,7 +159,7 @@ export const ProjectV = ({ project, employee, date, hours }) => { // first view 
     );
   };
 
-  export const TableOn_Date_Project = ({ date, project, hours }) => {
+  export const TableOnDateProject = ({ date, project, hours }) => {
     if (!date) return <div />;
     return (
       <table>
@@ -183,7 +183,7 @@ export const ProjectV = ({ project, employee, date, hours }) => { // first view 
     );
   };
 
-  export const TableOn_Date_Employee = ({ date, employee, hours }) => {
+  export const TableOnDateEmployee = ({ date, employee, hours }) => {
     if (!date) return <div />;
     return (
       <table>
@@ -207,7 +207,7 @@ export const ProjectV = ({ project, employee, date, hours }) => { // first view 
     );
   };
 
-  export const TableOn_Employee_Date = ({ employee, date, hours }) => {
+  export const TableOnEmployeeDate = ({ employee, date, hours }) => {
     if (!employee) return <div />;
     return (
       <table>

@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from "lodash";
 import ProjectData from '../projectData.json';
-import { TableOnDate, TableOnEmployee,  TableOnProject, TableOn_Date_Employee, TableOn_Date_Project, TableOn_Employee_Date, TableOn_Employee_Project, TableOn_Project_Date, TableOn_Project_Employee } from './TableViewer';
+import { TableOnDate, TableOnEmployee,  TableOnProject, TableOnDateEmployee, TableOnDateProject, TableOnEmployeeDate, TableOnEmployeeProject, TableOnProjectDate, TableOnProjectEmployee } from './TableViewer';
 
 //var ProjectT = fetch('http://localhost:3001/json')
 var ProjectT = ProjectData; // Json Array taken from file 
@@ -121,7 +121,7 @@ export class Aggregation extends React.Component {
 
         return final = sorted.map((data, i) => ( // displays new table values on screen
             <div key={i}>
-               <TableOn_Project_Employee // Use the view created in TableViewer.js
+               <TableOnProjectEmployee // Use the view created in TableViewer.js
                project = {data.Project}
                employee = {data.Employee}
                hours = {data.Hours}/>
@@ -150,7 +150,7 @@ export class Aggregation extends React.Component {
             sorted = newTable.sort((a, b) => a.EmployeeID - b.EmployeeID);
             return final = sorted.map((data, i) => (
                 <div key={i}>
-                   <TableOn_Employee_Project // Use view created in TableViewer.js
+                   <TableOnEmployeeProject // Use view created in TableViewer.js
                    employee = {data.Employee}
                    project = {data.Project}
                    hours = {data.Hours}/>
@@ -181,7 +181,7 @@ export class Aggregation extends React.Component {
             sorted = newTable.sort((a, b) => a.ProjectID - b.ProjectID);
             return final = sorted.map((data, i) => (
                 <div key={i}>
-                   <TableOn_Project_Date
+                   <TableOnProjectDate
                    project = {data.Project}
                    date = {data.Date}
                    hours = {data.Hours}/>
@@ -210,7 +210,7 @@ export class Aggregation extends React.Component {
                 sorted = newTable.sort((a, b) => a.Date - b.Date);
                 return final = sorted.map((data, i) => (
                     <div key={i}>
-                       <TableOn_Date_Project
+                       <TableOnDateProject
                        date = { data.Date}
                        project = {data.Project}
                        hours = {data.Hours}/></div>));
@@ -240,7 +240,7 @@ export class Aggregation extends React.Component {
             sorted = newTable.sort((a, b) => a.Date - b.Date);
             return final = sorted.map((data, i) => (
                 <div key={i}>
-                   <TableOn_Date_Employee
+                   <TableOnDateEmployee
                    date={data.Date}
                    employee={data.Employee}
                    hours={data.Hours}/></div>));
@@ -267,7 +267,7 @@ export class Aggregation extends React.Component {
                 sorted = newTable.sort((a, b) => a.Employee - b.Employee);
                 return final = sorted.map((data, i) => (
                     <div key={i}>
-                       <TableOn_Employee_Date
+                       <TableOnEmployeeDate
                        employee={data.Employee}
                        date={data.Date}
                        hours={data.Hours}/>
